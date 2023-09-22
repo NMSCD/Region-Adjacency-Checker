@@ -2,8 +2,8 @@ import { useRegionDataStore } from '../stores/regionData';
 import { storeToRefs } from 'pinia';
 
 const extractX = (glyphs: string) => glyphs.slice(-3);
-const extractY = (glyphs: string) => glyphs.slice(-6, -3);
-const extractZ = (glyphs: string) => glyphs.slice(4, 6);
+const extractY = (glyphs: string) => glyphs.slice(4, 6);
+const extractZ = (glyphs: string) => glyphs.slice(-6, -3);
 
 export function useRegionAdjacency() {
   const regionDataStore = useRegionDataStore();
