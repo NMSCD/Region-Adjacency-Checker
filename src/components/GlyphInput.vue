@@ -10,7 +10,7 @@ const props = defineProps<{
 const validInputRegex = /[0-9A-F:]/;
 
 const regionDataStore = useRegionDataStore();
-const { glyphs } = storeToRefs(regionDataStore);
+const { glyphs, glyphValues } = storeToRefs(regionDataStore);
 
 function addGlyph(e: Event) {
   if (!(e.target instanceof HTMLButtonElement)) return;
@@ -73,6 +73,16 @@ const numberToGlyph = (n: number) => n.toString(16).toUpperCase(); // NoSonar th
         {{ numberToGlyph(n - 1) }}
       </button>
     </div>
+    <p
+      v-show="glyphValues[index] && !glyphValues[index].includes(':')"
+      class="glyph-display-wrapper"
+    >
+      <output
+        class="glyphs"
+        id="glyphDisplay"
+        >{{ glyphValues[index] }}</output
+      >
+    </p>
   </div>
 </template>
 
