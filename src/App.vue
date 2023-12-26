@@ -5,6 +5,9 @@ import { storeToRefs } from 'pinia';
 import GlyphInput from './components/GlyphInput.vue';
 import { ref } from 'vue';
 import { useRegionAdjacency } from './composables/useRegionAdjacency';
+import { useI18n } from './hooks/useI18n';
+
+const { t } = useI18n();
 
 const regionDataStore = useRegionDataStore();
 const { glyphValues } = storeToRefs(regionDataStore);
@@ -15,13 +18,13 @@ const isAdjacent = ref(false);
 function checkAdjacency() {
   const distance = useRegionAdjacency();
   if (distance === 1) {
-    adjacency.value = 'Directly touching';
+    adjacency.value = t('translation.directlytouching');
   } else if (distance === Math.sqrt(2)) {
-    adjacency.value = 'Touching on one edge';
+    adjacency.value = t('translation.touchingontheedge');
   } else if (distance === Math.sqrt(3)) {
-    adjacency.value = 'Touching on one corner';
+    adjacency.value = t('translation.touchingonthecorner');
   } else {
-    adjacency.value = 'Not touching';
+    adjacency.value = t('translation.touchingonthecorner');
   }
   isAdjacent.value = distance === 1 || distance === Math.sqrt(2) || distance === Math.sqrt(3);
 }
@@ -30,7 +33,7 @@ function checkAdjacency() {
 <template>
   <header>
     <NavBar />
-    <h1 class="title">Region Adjacency Checker</h1>
+    <h1 class="title">{{ t('translation.title') }}</h1>
   </header>
 
   <main>
@@ -38,13 +41,15 @@ function checkAdjacency() {
       <GlyphInput
         :index="0"
         class="glyph-input"
-        label="Enter First Region Glyphs/Coordinates"
+        :label="$t('translation.enterfirstregion')"
+        maxlength="12"
       />
 
       <GlyphInput
         :index="1"
         class="glyph-input"
-        label="Enter Second Region Glyphs/Coordinates"
+        :label="$t('translation.entersecondregion')"
+        maxlength="12"
       />
     </div>
     <button
@@ -52,7 +57,7 @@ function checkAdjacency() {
       class="button"
       @click="checkAdjacency"
     >
-      Check Adjacency
+     {{ t('translation.check') }}
     </button>
     <p
       v-show="adjacency"
