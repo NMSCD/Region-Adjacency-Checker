@@ -16,11 +16,11 @@ function switchTheme(theme: string | undefined = undefined) {
 
 <template>
   <button
-    role="button"
     class="themeswitcher"
     id="themeSwitch"
+    role="button"
     @click="switchTheme()"
   >
-  {{ t('translation.switchtheme') }}
+    {{ t('translation.switchtheme') }}
   </button>
 </template>

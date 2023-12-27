@@ -20,8 +20,8 @@ watch(selectedLocale, (newVal) => {
     <ul>
       <li>
         <a
-          href=".."
           :title="t('translation.viewother')"
+          href=".."
           >← {{ t('translation.viewother') }}</a
         >
       </li>

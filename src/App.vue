@@ -40,15 +40,15 @@ function checkAdjacency() {
     <div class="input-wrapper">
       <GlyphInput
         :index="0"
+        :label="t('translation.enterfirstregion')"
         class="glyph-input"
-        :label="$t('translation.enterfirstregion')"
         maxlength="12"
       />
 
       <GlyphInput
         :index="1"
+        :label="t('translation.entersecondregion')"
         class="glyph-input"
-        :label="$t('translation.entersecondregion')"
         maxlength="12"
       />
     </div>
@@ -57,7 +57,7 @@ function checkAdjacency() {
       class="button"
       @click="checkAdjacency"
     >
-     {{ t('translation.check') }}
+      {{ t('translation.check') }}
     </button>
     <p
       v-show="adjacency"
