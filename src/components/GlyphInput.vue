@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { useRegionDataStore } from '../stores/regionData';
 import { storeToRefs } from 'pinia';
+import { useI18n } from '../hooks/useI18n';
+
+const { t } = useI18n();
 
 const props = defineProps<{
   label: string;
@@ -58,7 +61,7 @@ const numberToGlyph = (n: number) => n.toString(16).toUpperCase(); // NoSonar th
         type="button"
         @click="deleteGlyph"
       >
-        &larr; Delete
+        &larr; {{ t('translation.delete') }}
       </button>
     </div>
     <div class="portal-buttons grid">
