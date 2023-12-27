@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useI18n } from '../hooks/useI18n';
+
+const { t } = useI18n();
 // determine preferred theme and update the html element with the respective tag
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 switchTheme(prefersDark ? 'dark' : 'light');
@@ -13,11 +16,11 @@ function switchTheme(theme: string | undefined = undefined) {
 
 <template>
   <button
-    role="button"
     class="themeswitcher"
     id="themeSwitch"
+    role="button"
     @click="switchTheme()"
   >
-    Switch Theme
+    {{ t('translation.switchtheme') }}
   </button>
 </template>

@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { useRegionDataStore } from '../stores/regionData';
 import { storeToRefs } from 'pinia';
+import { useI18n } from '../hooks/useI18n';
+
+const { t } = useI18n();
 
 const props = defineProps<{
   label: string;
@@ -46,8 +49,8 @@ const numberToGlyph = (n: number) => n.toString(16).toUpperCase(); // NoSonar th
       <input
         class="glyphs-input"
         id="portalglyphsInput"
-        type="text"
         maxlength="19"
+        type="text"
         v-model="glyphs[index]"
         @input="lintGlyphs"
       />
@@ -58,16 +61,16 @@ const numberToGlyph = (n: number) => n.toString(16).toUpperCase(); // NoSonar th
         type="button"
         @click="deleteGlyph"
       >
-        &larr; Delete
+        &larr; {{ t('translation.delete') }}
       </button>
     </div>
     <div class="portal-buttons grid">
       <button
         v-for="n in 16"
-        class="button glyphs"
-        type="button"
         :id="'glyphButton' + n"
         :value="numberToGlyph(n - 1)"
+        class="button glyphs"
+        type="button"
         @click="addGlyph"
       >
         {{ numberToGlyph(n - 1) }}
