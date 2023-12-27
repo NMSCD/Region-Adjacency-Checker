@@ -42,14 +42,12 @@ function checkAdjacency() {
         :index="0"
         :label="t('translation.enterfirstregion')"
         class="glyph-input"
-        maxlength="12"
       />
 
       <GlyphInput
         :index="1"
         :label="t('translation.entersecondregion')"
         class="glyph-input"
-        maxlength="12"
       />
     </div>
     <button
