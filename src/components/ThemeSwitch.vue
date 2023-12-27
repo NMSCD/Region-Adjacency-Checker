@@ -18,7 +18,6 @@ function switchTheme(theme: string | undefined = undefined) {
   <button
     class="themeswitcher"
     id="themeSwitch"
-    role="button"
     @click="switchTheme()"
   >
     {{ t('translation.switchtheme') }}
