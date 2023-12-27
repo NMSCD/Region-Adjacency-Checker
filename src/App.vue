@@ -3,7 +3,7 @@ import NavBar from './components/NavBar.vue';
 import { useRegionDataStore } from './stores/regionData';
 import { storeToRefs } from 'pinia';
 import GlyphInput from './components/GlyphInput.vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useRegionAdjacency } from './composables/useRegionAdjacency';
 import { useI18n } from './hooks/useI18n';
 
@@ -28,6 +28,8 @@ function checkAdjacency() {
   }
   isAdjacent.value = distance === 1 || distance === Math.sqrt(2) || distance === Math.sqrt(3);
 }
+
+const glyphInputLabels = computed(() => [t('translation.enterfirstregion'), t('translation.entersecondregion')]);
 </script>
 
 <template>
@@ -39,14 +41,9 @@ function checkAdjacency() {
   <main>
     <div class="input-wrapper">
       <GlyphInput
-        :index="0"
-        :label="t('translation.enterfirstregion')"
-        class="glyph-input"
-      />
-
-      <GlyphInput
-        :index="1"
-        :label="t('translation.entersecondregion')"
+        v-for="i in 2"
+        :index="i - 1"
+        :label="glyphInputLabels[i - 1]"
         class="glyph-input"
       />
     </div>
