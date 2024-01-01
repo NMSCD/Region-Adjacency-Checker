@@ -11,7 +11,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@picocss/pico": "^1.5.10",
+    "@picocss/pico": "^1.5.11",
     "pinia": "^2.1.7",
     "sass": "^1.69.5",
     "vue": "^3.3.13",
