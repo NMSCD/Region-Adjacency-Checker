@@ -108,6 +108,7 @@ const numberToGlyph = (n: number) => n.toString(16).toUpperCase(); // NoSonar th
   .button {
     line-height: 3rem;
     padding: 0;
+    margin: 0;
   }
 }
 

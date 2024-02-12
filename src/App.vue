@@ -24,7 +24,7 @@ function checkAdjacency() {
   } else if (distance === Math.sqrt(3)) {
     adjacency.value = t('translation.touchingonthecorner');
   } else {
-    adjacency.value = t('translation.touchingonthecorner');
+    adjacency.value = t('translation.nottouching');
   }
   isAdjacent.value = distance === 1 || distance === Math.sqrt(2) || distance === Math.sqrt(3);
 }
@@ -47,13 +47,15 @@ const glyphInputLabels = computed(() => [t('translation.enterfirstregion'), t('t
         class="glyph-input"
       />
     </div>
-    <button
-      :disabled="!glyphValues.length || glyphValues.some((gl) => gl.length !== 12)"
-      class="button"
-      @click="checkAdjacency"
-    >
-      {{ t('translation.check') }}
-    </button>
+    <div class="action-button-wrapper">
+      <button
+        :disabled="!glyphValues.length || glyphValues.some((gl) => gl.length !== 12)"
+        class="button"
+        @click="checkAdjacency"
+      >
+        {{ t('translation.check') }}
+      </button>
+    </div>
     <p
       v-show="adjacency"
       :class="{ 'is-success': isAdjacent, 'is-error': !isAdjacent }"
@@ -77,16 +79,16 @@ const glyphInputLabels = computed(() => [t('translation.enterfirstregion'), t('t
   justify-content: space-evenly;
 }
 
-.button {
-  width: auto;
-  margin-inline: auto;
+.action-button-wrapper {
   margin-block-start: 2rem;
+  margin-block-end: 1rem;
+  text-align: center;
 }
 
 .output {
   text-align: center;
   padding: 1rem;
-  border-radius: var(--border-radius);
+  border-radius: var(--pico-border-radius);
 }
 
 .is-success {
