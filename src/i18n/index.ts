@@ -21,7 +21,8 @@ const languageMap = {
 const langEntries = Object.entries(languageMap);
 const preferredUserLang = navigator.language;
 
-const userLang = langEntries.find((lang) => lang[1].some((langCode) => langCode === preferredUserLang))?.[0] ?? 'English';
+const userLang =
+  langEntries.find((lang) => lang[1].some((langCode) => langCode === preferredUserLang))?.[0] ?? 'English';
 
 const localStorageLang = localStorage.getItem('lang');
 const preferredLang = localStorageLang ?? userLang;
