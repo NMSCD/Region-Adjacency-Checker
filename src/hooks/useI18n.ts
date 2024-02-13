@@ -11,10 +11,11 @@ type Join<FirstType, SecondType> = FirstType extends string | number
 /**
  * Helper type that transforms an object tree into a union type of all possibles leaves.
  */
-type Leaves<ObjectType> = ObjectType extends Record<string, unknown>
-  ? // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    { [Key in keyof ObjectType]-?: Join<Key, Leaves<ObjectType[Key]>> }[keyof ObjectType]
-  : '';
+type Leaves<ObjectType> =
+  ObjectType extends Record<string, unknown>
+    ? // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      { [Key in keyof ObjectType]-?: Join<Key, Leaves<ObjectType[Key]>> }[keyof ObjectType]
+    : '';
 
 export type I18NLeaves = Leaves<(typeof messages)['Español']>;
 
