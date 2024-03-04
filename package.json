@@ -13,7 +13,7 @@
     "@picocss/pico": "^2.0.0",
     "pinia": "^2.1.7",
     "sass": "^1.71.1",
-    "vue": "^3.4.20",
+    "vue": "^3.4.21",
     "vue-i18n": "^9.9.1"
   },
   "devDependencies": {
