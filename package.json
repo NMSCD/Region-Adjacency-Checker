@@ -20,7 +20,7 @@
     "@types/node": "^20.14.11",
     "@vitejs/plugin-vue": "^5.0.5",
     "prettier": "^3.3.3",
-    "typescript": "^5.5.3",
+    "typescript": "^5.5.4",
     "vite": "^5.3.4",
     "vue-tsc": "^2.0.28"
   }
