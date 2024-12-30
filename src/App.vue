@@ -66,7 +66,7 @@ const glyphInputLabels = computed(() => [t('translation.enterfirstregion'), t('t
   </main>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .title {
   margin-block-end: 2rem;
   text-align: center;
