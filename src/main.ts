@@ -1,5 +1,5 @@
 import '@picocss/pico';
-import './css/style.scss';
+import './css/style.css';
 
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
