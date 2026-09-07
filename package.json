@@ -16,7 +16,7 @@
     "vue-i18n": "^11.4.8"
   },
   "devDependencies": {
-    "@types/node": "^26.2.0",
+    "@types/node": "^26.4.1",
     "@vitejs/plugin-vue": "^6.0.8",
     "prettier": "^3.9.6",
     "typescript": "^5.9.3",
